@@ -24,10 +24,10 @@ body{color:var(--ink);font-family:var(--font);font-size:14px;line-height:1.43;
   transition:background-color .6s ease,color .6s ease;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:calc(var(--u)*5)}
 .grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:calc(var(--u)*3);max-width:1600px;margin-inline:auto}
-header{align-items:end;row-gap:calc(var(--u)*2);padding-bottom:calc(var(--u)*3);border-bottom:none}
-.id{grid-column:1/9;display:flex;flex-direction:column;gap:var(--u)}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:calc(var(--u)*3);padding-bottom:calc(var(--u)*3);border-bottom:none}
+.id{display:flex;align-items:flex-end;gap:calc(var(--u)*3);flex:1;min-width:0}
 h1{margin:0;font-family:"IBM Plex Serif",Georgia,"Times New Roman",serif;font-size:clamp(20px,1.9vw,26px);line-height:1;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
-.key{display:flex;flex-wrap:wrap;column-gap:calc(var(--u)*3);row-gap:var(--u);font-size:12px;line-height:16px;color:var(--mute)}
+.key{display:flex;flex-wrap:nowrap;align-items:center;gap:calc(var(--u)*2);font-size:12px;line-height:16px;color:var(--mute);white-space:nowrap;min-width:0}
 .key i{display:inline-block;width:24px;height:10px;margin-right:8px;vertical-align:-1px;background:var(--ink)}
 .key i.lined{background:repeating-linear-gradient(-30deg,var(--ink) 0 0.7px,transparent 0.7px 4px),var(--paper)}
 .key i.dotted{background:radial-gradient(circle,var(--ink) 0.8px,transparent 1.1px) 0 0/5px 5px,var(--paper)}
@@ -37,7 +37,7 @@ h1{margin:0;font-family:"IBM Plex Serif",Georgia,"Times New Roman",serif;font-si
 .key .ramp{align-items:center;gap:3px}.key .ramp b{width:8px;background:var(--ink)}.key .ramp b:nth-child(1){height:2px}.key .ramp b:nth-child(2){height:4px}.key .ramp b:nth-child(3){height:6px}.key .ramp b:nth-child(4){height:8px}.key .ramp b:nth-child(5){height:10px}
 .key .f i{margin-right:0}
 html.feeling .key .f i:not(.dotted):not(.lined){background:none;box-shadow:inset 0 0 0 1.5px var(--ink)}
-.toggle-wrap{grid-column:9/13;justify-self:end}
+.toggle-wrap{justify-self:end;flex-shrink:0}
 #mode{display:flex;align-items:center;gap:10px;background:none;border:0;padding:4px 0;cursor:pointer;color:var(--ink);font:12px/1 var(--font)}
 #mode .lab{color:var(--mute);transition:color .3s}
 #mode[aria-checked="false"] .off,#mode[aria-checked="true"] .on{color:var(--ink)}
