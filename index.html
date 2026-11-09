@@ -42,7 +42,10 @@ html.feeling .key{color:#ffffff}
 html.feeling .key .f i:not(.dotted):not(.lined){background:none;box-shadow:inset 0 0 0 1.5px var(--ink)}
 .toggle-wrap{justify-self:end;flex-shrink:0}
 #mode{display:flex;align-items:center;gap:10px;background:none;border:0;padding:4px 0;cursor:pointer;color:var(--ink);font:14px/1 var(--font)}
-#mode .lab{color:var(--ink);transition:color .3s}
+#mode .lab{display:none;color:var(--ink);transition:color .3s}
+#mode .off{display:inline}
+#mode[aria-checked="true"] .off{display:none}
+#mode[aria-checked="true"] .on{display:inline}
 #mode[aria-checked="false"] .off,#mode[aria-checked="true"] .on{color:var(--ink)}
 #mode .track{box-sizing:border-box;display:flex;align-items:center;width:32px;height:32px;padding:0;border:0;border-radius:50%;background:transparent;flex:none;transition:border-color .6s,background-color .3s}
 #mode .knob{display:block;width:28px;height:28px;border-radius:42% 58% 60% 40% / 52% 38% 62% 48%;background:#ff7a1a;transform:scale(1.04);transition:transform .65s cubic-bezier(.2,.8,.2,1),background-color .6s,box-shadow .35s ease,border-radius .6s ease,filter .35s ease;animation:morphOrange 2.8s linear infinite}
@@ -71,7 +74,7 @@ html.feeling .key .f i:not(.dotted):not(.lined){background:none;box-shadow:inset
       <span class="f">Scale of intensity in life: 1 (least) <span class="ramp"><b></b><b></b><b></b><b></b><b></b></span> 5 (most)</span><span class="f">Overall feeling: <i></i> good / <i class="lined"></i> neutral / <i class="dotted"></i> bad</span>
     </div>
   </div>
-  <div class="toggle-wrap"><button id="mode" type="button" role="switch" aria-checked="false"><span class="track"><span class="knob"></span></span><span class="lab on">No feelings</span></button></div>
+  <div class="toggle-wrap"><button id="mode" type="button" role="switch" aria-checked="false"><span class="track"><span class="knob"></span></span><span class="lab off">This time with feelings</span><span class="lab on">No feelings</span></button></div>
 </header>
 
 <div class="grid">
