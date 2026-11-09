@@ -22,8 +22,8 @@ html.feeling{ --paper:#0d0d0d; --ink:#ffffff; --mute:#9a9a9a; --hair:#2a2a2a; co
 html,body{background:var(--paper);transition:background-color .6s ease}
 body{color:var(--ink);font-family:var(--font);font-size:14px;line-height:1.43;
   transition:background-color .6s ease,color .6s ease;
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:calc(var(--u)*5)}
-.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:calc(var(--u)*3);max-width:1600px;margin-inline:auto}
+  padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));padding-block:calc(var(--u)*5)}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:calc(var(--u)*3);max-width:1600px;margin-inline:auto;padding-inline:8px}
 header{display:flex;align-items:center;justify-content:space-between;gap:calc(var(--u)*3);padding-bottom:calc(var(--u)*3);border-bottom:none;width:100%;box-sizing:border-box}
 .id{display:flex;align-items:center;gap:calc(var(--u)*3);flex:1;min-width:0}
 h1{margin:0;font-family:"IBM Plex Serif",Georgia,"Times New Roman",serif;font-size:clamp(20px,1.9vw,26px);line-height:1;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
