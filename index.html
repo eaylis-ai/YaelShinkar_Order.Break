@@ -24,7 +24,7 @@ body{color:var(--ink);font-family:var(--font);font-size:14px;line-height:1.43;
   transition:background-color .6s ease,color .6s ease;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:calc(var(--u)*5)}
 .grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:calc(var(--u)*3);max-width:1600px;margin-inline:auto}
-header{display:flex;align-items:flex-end;justify-content:space-between;gap:calc(var(--u)*3);padding-bottom:calc(var(--u)*3);border-bottom:none}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:calc(var(--u)*3);padding-bottom:calc(var(--u)*3);border-bottom:none;width:100%;box-sizing:border-box}
 .id{display:flex;align-items:flex-end;gap:calc(var(--u)*3);flex:1;min-width:0}
 h1{margin:0;font-family:"IBM Plex Serif",Georgia,"Times New Roman",serif;font-size:clamp(20px,1.9vw,26px);line-height:1;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
 .key{display:flex;flex-wrap:nowrap;align-items:center;gap:calc(var(--u)*2);font-size:14px;line-height:16px;color:var(--mute);white-space:nowrap;min-width:0}
@@ -59,7 +59,7 @@ html.feeling .key .f i:not(.dotted):not(.lined){background:none;box-shadow:inset
 </style>
 </head>
 <body>
-<header class="grid">
+<header>
   <div class="id">
     <h1>Yael Shinkar</h1>
     <div class="key">
