@@ -50,6 +50,7 @@ html.feeling .key .f i:not(.dotted):not(.lined){background:none;box-shadow:inset
 .chart svg{display:block;width:100%;min-width:960px;height:auto;overflow:visible}
 .statement{grid-column:1/8;margin-top:calc(var(--u)*8)}
 .statement h2{font-size:12px;margin:0 0 calc(var(--u)*2);font-weight:400}
+.data-error{margin:0;padding:calc(var(--u)*4) 0;color:var(--mute);font-size:14px;max-width:62ch}
 .statement{display:flex;flex-direction:column;gap:calc(var(--u)*2)}
 .statement h2{margin-bottom:0}
 .statement p{margin:0;max-width:62ch;font-size:16px;line-height:24px;color:var(--ink)}
@@ -76,7 +77,7 @@ html.feeling .key .f i:not(.dotted):not(.lined){background:none;box-shadow:inset
   <div class="chart"><svg id="svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Timeline of Yael Shinkar's life, 1981 to 2026, in six strands"></svg></div>
   <section class="statement">
     <h2>Statement</h2>
-    <p>This page is my life as a dataset: 53 streams across six strands, from Cape Town in 1981 to Givatayim today. Work, education, places lived, places worked, personal milestones and everything else.</p>
+    <p>This page is my life as a dataset: <span id="count-streams">53</span> streams across <span id="count-strands">six</span> strands, from Cape Town in 1981 to Givatayim today. Work, education, places lived, places worked, personal milestones and everything else.</p>
     <p>The first state is order. It follows the Swiss tradition of Müller-Brockmann: a twelve-column grid, one typeface, a strict time axis, and every chapter drawn at exactly the same weight. Each stream sits in its strand, stacked by start date, and nothing touches anything else. In this state, years at a newspaper weigh as much as a single guest lecture. The chart is true and clean, and it says almost nothing about what those years were like.</p>
     <p>The second state, This time with feelings, adds two columns that only I could fill in. One is intensity: how much each chapter took from me, from 1 to 5. The other is the overall feeling: good, neutral or bad. The streams swell with intensity until the strands no longer fit their rows and spill into one another. Bad chapters are dotted, neutral ones hatched, good ones left open. The grid stays underneath, so the break is always read against the order it breaks.</p>
     <p>No model could have produced this layer. It does not know which chapters were good, which were bad, or how much each one took. The disorder carries information.</p>
@@ -86,9 +87,60 @@ html.feeling .key .f i:not(.dotted):not(.lined){background:none;box-shadow:inset
 </div>
 <div id="tip" hidden></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
-const DATA = [["Work", "Infographic Designer – Ha'aretz", 2007, 2009, 3, 2], ["Work", "Graphic Designer – Y&R Israel", 2009, 2010, 5, 0], ["Work", "Lead Infographic Designer – TheMarker Week", 2010, 2013, 4, 1], ["Work", "Head of Visual Data Journalism – Calcalist", 2015, 2019, 4, 1], ["Work", "Head of Visual Data Journalism – Globes", 2019, 2022, 4, 2], ["Work", "Freelance data visualization designer – eaylis.com", 2010, null, 5, 1], ["Work", "Infographic Lecturer – College of Management", 2017, 2019, 2, 2], ["Work", "Infographic Lecturer – HIT", 2023, null, 2, 1], ["Work", "Infographic Lecturer – SCE", 2024, null, 2, 1], ["Work", "Lab Manager, Smart Social Strategy Lab at the Technion", 2026, null, 5, 1], ["Miscellaneous", "365° Instagram infographic blog (with Adi Barak)", 2019, 2019, 2, 1], ["Miscellaneous", "\"Broken Telephone\" multidisciplinary show", 2014, 2016, 5, 1], ["Miscellaneous", "Final-project crit mentor at HIT", 2021, 2021, 1, 1], ["Work", "Guest speaker – ISVIS 2019, Shenkar: Sex, Feminism and Politics", 2019, 2019, 1, 1], ["Work", "Infographics in journalism, Siur Mochot", 2021, 2021, 1, 1], ["Work", "Infographic lesson & practice, Open University", 2021, 2021, 1, 2], ["Education", "B.Des Visual Communications – HIT", 2005, 2009, 5, 0], ["Education", "M.Des Design for Technology – HIT", 2025, null, 5, 1], ["Places lived", "SeaPoint, Cape Town, South Africa", 1981, 1987, 3, 1], ["Places lived", "Vredehook, Cape Town, South Africa", 1987, 1994, 3, 1], ["Places lived", "Center, Netanya, Israel", 1994, 1995, 4, 0], ["Places lived", "Hashiva, Netanya, Israel", 1995, 1997, 4, 2], ["Places lived", "Kiriyat Nordo, Netanya, Israel", 1997, 2007, 5, 0], ["Places lived", "Holon, Israel", 2007, 2009, 3, 2], ["Places lived", "Bialik, Tel-Aviv, Israel", 2009, 2012, 5, 1], ["Places lived", "Nachmani, Tel-Aviv, Israel", 2012, 2021, 5, 1], ["Places lived", "Emanual Haromi, Tel-Aviv, Israel", 2021, 2022, 5, 1], ["Places lived", "Poalei Harakevet, Givatayim, Israel", 2022, 2024, 5, 0], ["Places lived", "Kfar Saba, Israel", 2024, 2026, 5, 0], ["Places lived", "Givat Harambam, Givatayim, Israel", 2026, null, 5, 1], ["Geographic places worked", "Tel -Aviv", 2007, 2009, 1, 1], ["Geographic places worked", "Ramat Hayal", 2009, 2010, 4, 0], ["Geographic places worked", "Tel -Aviv", 2010, 2013, 1, 1], ["Geographic places worked", "Rishon Lezion", 2015, 2019, 3, 0], ["Geographic places worked", "Rishon Lezion", 2019, 2022, 3, 0], ["Geographic places worked", "Home", 2010, null, 3, 1], ["Geographic places worked", "Rishon Lezion", 2017, 2019, 1, 0], ["Geographic places worked", "Tel -Aviv", 2023, null, 1, 1], ["Geographic places worked", "Beer-Sheva", 2024, null, 1, 1], ["Geographic places worked", "Haifa", 2026, null, 5, 1], ["Personal Milestones", "Got engaged", 2011, 2011, 5, 0], ["Personal Milestones", "Broke up", 2012, 2012, 5, 1], ["Personal Milestones", "Adi", 2019, null, 5, 1], ["Personal Milestones", "Pregnant", 2021, 2022, 5, 0], ["Personal Milestones", "I'm a Mom: Lenny", 2022, null, 5, 1], ["Work", "Infographic Guide to Music, Essential Works (UK)", 2014, 2014, 1, 1], ["Work", "Infographic Guide to Literature, Essential Works (UK)", 2014, 2014, 1, 1], ["Work", "Infographic Guide to Life, the Universe and Everything, Essential Works (UK)", 2014, 2014, 1, 1], ["Work", "Infographic Guide to Sport, Essential Works (UK)", 2014, 2014, 1, 1], ["Work", "Infographic Guide to Movies, Essential Works (UK)", 2013, 2013, 1, 1], ["Work", "Visual Storytelling – Infographic Design in News, Images Publishing Group (Shanghai)", 2017, 2017, 1, 1], ["Work", "Make It Visible: Informative & Cool Infographics, PIE International (Japan)", 2016, 2016, 1, 1], ["Work", "Infographics Communication: Your Infographics Times, BranD Magazine No.41 (China)", 2018, 2018, 1, 1]];
-const LANES=["Personal Milestones","Places lived","Education","Work","Geographic places worked","Miscellaneous"];
+// The page reads its data from this file in the repo. Replace the file (same name) to update the site.
+const DATA_FILE="data/id_ME.xlsx";
+// Strands are drawn in this order; any new lane name in the sheet is added below them.
+const LANE_ORDER=["Personal Milestones","Places lived","Education","Work","Geographic places worked","Miscellaneous"];
+
+function rowsFromSheet(buf){
+  const wb=XLSX.read(buf,{type:"array"});
+  const ws=wb.Sheets[wb.SheetNames[0]];
+  const rows=XLSX.utils.sheet_to_json(ws,{header:1,blankrows:false,defval:null});
+  const out=[];
+  // Columns A–F: lane, stream name, start year, end year, intensity (1–5), Bad / Neutral / Good
+  rows.slice(1).forEach(r=>{
+    const lane=r[0]==null?"":String(r[0]).trim();
+    const name=r[1]==null?"":String(r[1]).trim();
+    const s=parseInt(r[2],10);
+    if(!lane||!name||isNaN(s))return;
+    const eRaw=r[3]==null?"":String(r[3]).trim().toLowerCase();
+    const e=(eRaw===""||eRaw==="ongoing"||eRaw==="now")?null:parseInt(eRaw,10);
+    const i=Math.max(1,Math.min(5,parseInt(r[4],10)||1));
+    const f=String(r[5]??"").trim().toLowerCase();
+    const feel=f.startsWith("good")?1:(f.startsWith("neut")?2:0);
+    out.push([lane,name,s,isNaN(e)?null:e,i,feel]);
+  });
+  return out;
+}
+
+function showDataError(msg){
+  const box=document.querySelector(".chart");
+  box.innerHTML='<p class="data-error"></p>';
+  box.querySelector("p").textContent=msg;
+}
+
+fetch(DATA_FILE+"?v="+Date.now())
+  .then(r=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.arrayBuffer()})
+  .then(buf=>{
+    const data=rowsFromSheet(buf);
+    if(!data.length)throw new Error("empty");
+    start(data);
+  })
+  .catch(err=>{
+    console.error(err);
+    showDataError(location.protocol==="file:"
+      ? "The data could not load because the page was opened as a file. Open it through a local server (for example Live Server in VS Code) or on GitHub Pages."
+      : "The data file "+DATA_FILE+" could not be loaded. Check that it is in the repo with this exact name.");
+  });
+
+function start(DATA){
+const present=[...new Set(DATA.map(r=>r[0]))];
+const LANES=[...LANE_ORDER.filter(l=>present.includes(l)),...present.filter(l=>!LANE_ORDER.includes(l))];
+const nWords=["zero","one","two","three","four","five","six","seven","eight","nine","ten"];
+const cs=document.getElementById("count-streams"), cl=document.getElementById("count-strands");
+if(cs)cs.textContent=DATA.length; if(cl)cl.textContent=nWords[LANES.length]||LANES.length;
 const title=s=>s.charAt(0).toUpperCase()+s.slice(1).toLowerCase();
 const Y0=1981, Y1=2027, NOW=2026.9;
 const W=1600, LEFT=200, RIGHT=24, TOP=56, PITCH=96, PITCH_F=96;
@@ -250,6 +302,8 @@ btn.addEventListener("click",()=>{
   anim=requestAnimationFrame(tick);
 });
 paint();
+
+}
 </script>
 </body>
 </html>

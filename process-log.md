@@ -17,6 +17,28 @@ Built with Claude (Anthropic) in one working session, 9 November 2026. This log 
 | Two styles: black-and-white (Jencks-like) and red on black; thickness = intensity, Good solid, Bad striped. | Asked to exaggerate intensity and let strands overlap. |
 | Version with equal thickness (no intensity). | Used this as the "order" state. |
 
+## Drafts
+
+### First draft from the spreadsheet: thickness = intensity, Good solid, Bad striped
+![First draft, black and white](drafts/01-first-draft-bw.png)
+![First draft, red on black](drafts/02-first-draft-red.png)
+
+### Redrawn after I changed the data (talks and publications moved into Work)
+![Updated data, black and white](drafts/03-updated-data-bw.png)
+![Updated data, red on black](drafts/04-updated-data-red.png)
+
+### Intensity exaggerated, strands allowed to overlap
+![Exaggerated, black and white](drafts/05-exaggerated-bw.png)
+![Exaggerated, red on black](drafts/06-exaggerated-red.png)
+
+### Equal thickness, no intensity (became the "order" state)
+![Equal thickness, black and white](drafts/07-equal-thickness-bw.png)
+![Equal thickness, red on black](drafts/08-equal-thickness-red.png)
+
+### Final page
+![Final, without feelings](drafts/09-final-without-feelings.png)
+![Final, this time with feelings](drafts/10-final-with-feelings.png)
+
 ## 3. The concept: order and breaking
 
 My decision: one page with a toggle.
