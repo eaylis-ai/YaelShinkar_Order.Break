@@ -74,7 +74,7 @@ html.feeling .key .f i:not(.dotted):not(.lined){background:none;box-shadow:inset
       <span class="f">Scale of intensity in life: 1 (least) <span class="ramp"><b></b><b></b><b></b><b></b><b></b></span> 5 (most)</span><span class="f">Overall feeling: <i></i> good / <i class="lined"></i> neutral / <i class="dotted"></i> bad</span>
     </div>
   </div>
-  <div class="toggle-wrap"><button id="mode" type="button" role="switch" aria-checked="false"><span class="track"><span class="knob"></span></span><span class="lab off">This time with feelings</span><span class="lab on">No feelings</span></button></div>
+  <div class="toggle-wrap"><button id="mode" type="button" role="switch" aria-checked="false"><span class="track"><span class="knob"></span></span><span class="lab off">Now with feelings</span></button></div>
 </header>
 
 <div class="grid">
@@ -238,7 +238,7 @@ function paint(){
   const fam='"Helvetica Neue",Helvetica,Arial,sans-serif';
   gTxt.querySelectorAll("text").forEach(t=>{t.setAttribute("fill",ink);t.setAttribute("font-family",fam)});
   gTxt.querySelectorAll(".yr").forEach(t=>{t.setAttribute("font-size",14);t.setAttribute("font-weight",400)});
-  gTxt.querySelectorAll(".lane").forEach(t=>{t.setAttribute("font-size",14);t.setAttribute("font-weight",400);t.setAttribute("letter-spacing",0)});
+  gTxt.querySelectorAll(".lane").forEach(t=>{t.setAttribute("font-size",14);t.setAttribute("font-weight",400);t.setAttribute("letter-spacing",0);t.textContent=t.textContent.toUpperCase()});
   LANES.forEach((l,k)=>{
     const c=TOP+k*pitch+pitch/2;
     const arr=byLane[l]; const n=xs.length;
