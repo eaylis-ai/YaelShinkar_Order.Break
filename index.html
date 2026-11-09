@@ -38,7 +38,7 @@ h1{margin:0;font-family:"IBM Plex Serif",Georgia,"Times New Roman",serif;font-si
 .key .f i{margin-right:0}
 html.feeling .key .f i:not(.dotted):not(.lined){background:none;box-shadow:inset 0 0 0 1.5px var(--ink)}
 .toggle-wrap{justify-self:end;flex-shrink:0}
-#mode{display:flex;align-items:center;gap:10px;background:none;border:0;padding:4px 0;cursor:pointer;color:var(--ink);font:14px/1 var(--font)}
+#mode{display:flex;align-items:center;gap:10px;background:none;border:0;padding:4px 0;cursor:pointer;color:var(--ink);font:12px/1 var(--font)}
 #mode .lab{color:var(--mute);transition:color .3s}
 #mode[aria-checked="false"] .off,#mode[aria-checked="true"] .on{color:var(--ink)}
 #mode .track{box-sizing:border-box;display:flex;align-items:center;width:44px;height:24px;padding:0 3px;border:1.5px solid var(--ink);border-radius:999px;flex:none;transition:border-color .6s,background-color .3s}
@@ -48,10 +48,9 @@ html.feeling .key .f i:not(.dotted):not(.lined){background:none;box-shadow:inset
 #mode:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 .chart{grid-column:1/-1;overflow-x:auto;overflow-y:visible;margin-top:calc(var(--u)*3)}
 .chart svg{display:block;width:100%;min-width:760px;height:auto;overflow:visible}
-.statement{grid-column:1/-1;margin-top:calc(var(--u)*5);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:calc(var(--u)*3);row-gap:calc(var(--u)*2)}
-.statement h2{grid-column:1/-1;font-size:14px;margin:0;font-weight:400;letter-spacing:.04em;text-transform:uppercase}
+.statement{grid-column:1/-1;margin-top:calc(var(--u)*5);display:flex;flex-direction:column;gap:calc(var(--u)*2)}
 .data-error{margin:0;padding:calc(var(--u)*4) 0;color:var(--mute);font-size:14px;max-width:62ch}
-.statement p{margin:0;max-width:none;font-size:12px;line-height:24px;color:var(--ink)}
+.statement p{margin:0;max-width:72ch;font-size:14px;line-height:24px;color:var(--ink)}
 #tip{position:fixed;pointer-events:none;max-width:280px;z-index:5;padding:4px 8px;background:#ffffff;border:1px solid var(--ink);color:var(--ink);font:14px/16px var(--font);box-shadow:0 1px 0 rgba(0,0,0,.15)}
 @media (max-width:760px){
   .id{grid-column:1/-1}.toggle-wrap{grid-column:1/-1;justify-self:start}.statement{grid-column:1/-1}
@@ -74,7 +73,6 @@ html.feeling .key .f i:not(.dotted):not(.lined){background:none;box-shadow:inset
 <div class="grid">
   <div class="chart"><svg id="svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Timeline of Yael Shinkar's life, 1981 to 2026, in six strands"></svg></div>
   <section class="statement">
-    <h2>Statement</h2>
     <p>This page is my life as a dataset: <span id="count-streams">53</span> streams across <span id="count-strands">six</span> strands, from Cape Town in 1981 to Givatayim today. Work, education, places lived, places worked, personal milestones and everything else.</p>
     <p>The first state is order. It follows the Swiss tradition of Müller-Brockmann: a twelve-column grid, one typeface, a strict time axis, and every chapter drawn at exactly the same weight. Each stream sits in its strand, stacked by start date, and nothing touches anything else. In this state, years at a newspaper weigh as much as a single guest lecture. The chart is true and clean, and it says almost nothing about what those years were like.</p>
     <p>The second state, This time with feelings, adds two columns that only I could fill in. One is intensity: how much each chapter took from me, from 1 to 5. The other is the overall feeling: good, neutral or bad. The streams swell with intensity until the strands no longer fit their rows and spill into one another. Bad chapters are dotted, neutral ones hatched, good ones left open. The grid stays underneath, so the break is always read against the order it breaks.</p>
