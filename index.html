@@ -43,8 +43,8 @@ html.feeling .key .f i:not(.dotted):not(.lined){background:none;box-shadow:inset
 #mode[aria-checked="false"] .off,#mode[aria-checked="true"] .on{color:var(--ink)}
 #mode .track{box-sizing:border-box;display:flex;align-items:center;width:44px;height:24px;padding:0 3px;border:1.5px solid var(--ink);border-radius:999px;flex:none;transition:border-color .6s,background-color .3s}
 #mode .knob{display:block;width:15px;height:15px;border-radius:50%;background:var(--ink);transition:transform .35s cubic-bezier(.5,0,.2,1),background-color .6s}
-#mode[aria-checked="true"] .track{border-color:#ff0000}
-#mode[aria-checked="true"] .knob{transform:translateX(20px);background:#ff0000}
+#mode[aria-checked="true"] .track{border-color:#ff7a1a}
+#mode[aria-checked="true"] .knob{transform:translateX(20px);background:#ff7a1a}
 #mode:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 .chart{grid-column:1/-1;overflow-x:auto;overflow-y:visible;margin-top:calc(var(--u)*3)}
 .chart svg{display:block;width:100%;min-width:960px;height:auto;overflow:visible}
@@ -271,7 +271,7 @@ function paint(){
             lab.setAttribute("font-size",fs.toFixed(1));
             lab.setAttribute("x",px(xs[mid]).toFixed(1));
             lab.setAttribute("y",(midTop+midTh/2).toFixed(1));
-            lab.setAttribute("fill",striped?"#ff0000":"#ffffff");lab.setAttribute("opacity",vis.toFixed(2));
+            lab.setAttribute("fill","#ffffff");lab.setAttribute("opacity",vis.toFixed(2));
           }
         }
       }
