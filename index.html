@@ -28,6 +28,7 @@ body{color:var(--ink);font-family:var(--font);font-size:14px;line-height:1.43;
 header{display:flex;align-items:center;justify-content:space-between;gap:calc(var(--u)*3);padding-bottom:calc(var(--u)*3);border-bottom:none;width:100%;box-sizing:border-box}
 .id{display:flex;align-items:center;gap:calc(var(--u)*3);flex:1;min-width:0}
 h1{margin:0;font-family:"Archivo Black","Arial Black","Impact",sans-serif;font-size:clamp(30px,2.6vw,54px);line-height:.9;font-weight:900;letter-spacing:-.07em;text-transform:uppercase;white-space:nowrap}
+html.feeling h1{color:var(--paper);-webkit-text-stroke:2px #ff7a1a;text-shadow:none;paint-order:stroke fill}
 .key{display:flex;flex-wrap:nowrap;align-items:center;gap:calc(var(--u)*2);font-size:14px;line-height:16px;color:#000000;white-space:nowrap;min-width:0}
 html.feeling .key{color:#ffffff}
 .key i{display:inline-block;width:24px;height:10px;margin-right:8px;vertical-align:-1px;background:var(--ink)}
@@ -44,9 +45,9 @@ html.feeling .key .f i:not(.dotted):not(.lined){background:none;box-shadow:inset
 #mode .lab{color:var(--ink);transition:color .3s}
 #mode[aria-checked="false"] .off,#mode[aria-checked="true"] .on{color:var(--ink)}
 #mode .track{box-sizing:border-box;display:flex;align-items:center;width:32px;height:32px;padding:0;border:0;border-radius:50%;background:transparent;flex:none;transition:border-color .6s,background-color .3s}
-#mode .knob{display:block;width:28px;height:28px;border-radius:42% 58% 60% 40% / 52% 38% 62% 48%;background:#0d0d0d;transition:transform .65s cubic-bezier(.2,.8,.2,1),background-color .6s,box-shadow .35s ease,border-radius .6s ease}
+#mode .knob{display:block;width:28px;height:28px;border-radius:42% 58% 60% 40% / 52% 38% 62% 48%;background:#ff7a1a;transform:scale(1.04);transition:transform .65s cubic-bezier(.2,.8,.2,1),background-color .6s,box-shadow .35s ease,border-radius .6s ease,filter .35s ease}
 #mode[aria-checked="true"] .track{border-color:#ff7a1a;background:transparent}
-#mode[aria-checked="true"] .knob{transform:translateX(0) scale(1.04);background:#ff7a1a;border-radius:52% 48% 54% 46% / 48% 52% 48% 52%;box-shadow:inset 0 0 0 2px rgba(255,255,255,.12),0 0 0 1px rgba(0,0,0,.12)}
+#mode[aria-checked="true"] .knob{transform:scale(1);background:#ffffff;border-radius:52% 48% 54% 46% / 48% 52% 48% 52%;box-shadow:inset 0 0 0 2px rgba(0,0,0,.08),0 0 0 1px rgba(0,0,0,.08);filter:saturate(1.15)}
 #mode:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 .chart{grid-column:1/-1;overflow-x:auto;overflow-y:visible;margin-top:calc(var(--u)*3)}
 .chart svg{display:block;width:100%;min-width:760px;height:auto;overflow:visible}
