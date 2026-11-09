@@ -60,7 +60,15 @@ html.feeling .key .f i:not(.dotted):not(.lined){background:none;box-shadow:inset
 .statement p{margin:0;max-width:72ch;font-size:14px;line-height:24px;color:var(--ink)}
 #tip{position:fixed;pointer-events:none;max-width:280px;z-index:5;padding:4px 8px;background:#ffffff;border:none;color:var(--ink);font:14px/16px var(--font);box-shadow:0 1px 0 rgba(0,0,0,.15)}
 @media (max-width:760px){
-  .id{grid-column:1/-1}.toggle-wrap{grid-column:1/-1;justify-self:start}.statement{grid-column:1/-1}
+  body{padding-inline:14px;padding-block:20px}
+  header{flex-direction:column;align-items:flex-start;gap:12px}
+  .id{display:flex;flex-direction:column;align-items:flex-start;gap:10px;flex:1 1 100%;width:100%}
+  h1{font-size:clamp(28px,8vw,42px);white-space:normal;line-height:.95;letter-spacing:-.05em}
+  .key{flex-wrap:wrap;white-space:normal;line-height:1.35}
+  .key .f{display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px}
+  .toggle-wrap{justify-self:start;align-self:flex-start}
+  .chart svg{min-width:640px}
+  .statement{grid-column:1/-1}
 }
 @media (prefers-reduced-motion:reduce){body,#mode .knob,#mode .track{transition:none}}
 </style>
